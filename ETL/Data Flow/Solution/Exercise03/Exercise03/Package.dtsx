@@ -1,0 +1,1219 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/2/2018 9:31:25 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-15JLPL7"
+  DTS:CreatorName="DESKTOP-15JLPL7\DEV"
+  DTS:DTSID="{06B5DA3C-67E1-4DFE-ABFF-5334CE25C0CC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{9C5C1E91-F0FD-4DEB-9666-4508349A7C7D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AdventureWorks Data Warehouse]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5704CEF9-00C6-4D65-9017-EADEEABB7ED8}"
+      DTS:ObjectName="AdventureWorks Data Warehouse">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=AdventureworksDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Currency File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9A97DA24-B092-4438-A8B1-4EED38D3432C}"
+      DTS:ObjectName="Currency File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::varFileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyId"
+              DTS:DTSID="{B379E3E4-826F-411D-9C8F-23C2D9C48596}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyIDKey"
+              DTS:DTSID="{C1823FA6-CC68-4F7A-8C72-2F1456D5698A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyDate"
+              DTS:DTSID="{EA7A8A3B-9DB7-4FB9-AAB2-280387EC34DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="14"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AverageRate"
+              DTS:DTSID="{234599BF-73E0-4978-9F24-DAF756C792AD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Export Currency Flat File]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{69A712F5-A6C5-45E1-93A9-34333C720DD6}"
+      DTS:ObjectName="Export Currency Flat File">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DEV\Desktop\Result.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyId"
+              DTS:DTSID="{8F3434B7-BD01-4B4D-9670-E000971BE219}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyIDKey"
+              DTS:DTSID="{04800808-C567-415B-B8E6-7FFB8B174DD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="134"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyDate"
+              DTS:DTSID="{79EA2367-8EE8-4058-8A1A-D709C42A57D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="14"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AverageRate"
+              DTS:DTSID="{81273B47-FE83-412F-8E2F-5C65CD7D51A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyAlternateKey"
+              DTS:DTSID="{AA42376A-A60A-49FB-BDA6-591DD2885EA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyName"
+              DTS:DTSID="{8F335E56-32E4-442D-889B-9E1CBC233367}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EA500F21-E163-4C56-95BF-349EC107EE59}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{AC708B9B-EBA2-4577-9A92-31D997A99032}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{1CBF7EE3-1BB9-4309-93F5-7359127B9561}"
+        DTS:ObjectName="{1CBF7EE3-1BB9-4309-93F5-7359127B9561}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Databases\Files" />
+            <FEFEProperty
+              FileSpec="Currency_*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Export Plain Data"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{44CA65D8-630B-48A6-9813-F4517957E507}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Export Plain Data"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Export Plain Data\Currency File"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Currency File"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Currency File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Currency File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].ExternalColumns[CurrencyId]"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyId]"
+                          name="CurrencyId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyIDKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].ExternalColumns[CurrencyIDKey]"
+                          length="3"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyIDKey]"
+                          name="CurrencyIDKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].ExternalColumns[CurrencyDate]"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyDate]"
+                          name="CurrencyDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[AverageRate]"
+                          dataType="decimal"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].ExternalColumns[AverageRate]"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[AverageRate]"
+                          name="AverageRate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].ExternalColumns[CurrencyId]"
+                          dataType="i4"
+                          name="CurrencyId" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].ExternalColumns[CurrencyIDKey]"
+                          dataType="wstr"
+                          length="3"
+                          name="CurrencyIDKey" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].ExternalColumns[CurrencyDate]"
+                          dataType="dbDate"
+                          name="CurrencyDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].ExternalColumns[AverageRate]"
+                          dataType="decimal"
+                          name="AverageRate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Filter Month &gt; 8"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Inputs[Conditional Split Input].Columns[CurrencyDate]"
+                          cachedDataType="dbDate"
+                          cachedName="CurrencyDate"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Outputs[FilterDate]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="FilterDate"
+                      synchronousInputId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[MONTH](#{Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyDate]}) &gt;= 8</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">MONTH(CurrencyDate) &gt;= 8</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">false</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Export Currency Flat File]"
+                      connectionManagerRefId="Package.ConnectionManagers[Export Currency Flat File]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyId]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyId"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyId]"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyId]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyDate]"
+                          cachedDataType="dbDate"
+                          cachedName="CurrencyDate"
+                          cachedSortKeyPosition="-1"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyDate]"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].Columns[AverageRate]"
+                          cachedDataType="decimal"
+                          cachedName="AverageRate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AverageRate]"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[AverageRate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyAlternateKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CurrencyAlternateKey"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyAlternateKey]"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyAlternateKey]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CurrencyName"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyName]"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyId]"
+                          dataType="i4"
+                          name="CurrencyId" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyIDKey]"
+                          dataType="wstr"
+                          length="3"
+                          name="CurrencyIDKey" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyDate]"
+                          dataType="dbTime"
+                          name="CurrencyDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AverageRate]"
+                          dataType="decimal"
+                          name="AverageRate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyAlternateKey]"
+                          dataType="wstr"
+                          length="3"
+                          name="CurrencyAlternateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CurrencyName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Export Plain Data\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM [dbo].[DimCurrency]
+WHERE [CurrencyAlternateKey]
+IN ('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
+    'DEM', 'EUR', 'FRF', 'GBP', 'JPY',
+    'MXN', 'SAR', 'USD', 'VEB')</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT * FROM [dbo].[DimCurrency]
+WHERE [CurrencyAlternateKey]
+IN ('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
+    'DEM', 'EUR', 'FRF', 'GBP', 'JPY',
+    'MXN', 'SAR', 'USD', 'VEB')) [refTable]
+where [refTable].[CurrencyAlternateKey] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CurrencyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyAlternateKey" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyIDKey]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[AdventureWorks Data Warehouse]"
+                      connectionManagerRefId="Package.ConnectionManagers[AdventureWorks Data Warehouse]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Inputs[Lookup Input].Columns[CurrencyIDKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CurrencyIDKey"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyIDKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">CurrencyAlternateKey</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Foreach Loop Container\Export Plain Data\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output].Columns[CurrencyName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output].Columns[CurrencyName]"
+                          name="CurrencyName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">CurrencyName</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output].Columns[CurrencyAlternateKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="3"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output].Columns[CurrencyAlternateKey]"
+                          name="CurrencyAlternateKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">CurrencyAlternateKey</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Foreach Loop Container\Export Plain Data\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Export Plain Data\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Export Plain Data\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Export Plain Data\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Inputs[Sort Input].Columns[CurrencyId]"
+                          cachedDataType="i4"
+                          cachedName="CurrencyId"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyId]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Inputs[Sort Input].Columns[CurrencyIDKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CurrencyIDKey"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyIDKey]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Inputs[Sort Input].Columns[CurrencyDate]"
+                          cachedDataType="dbDate"
+                          cachedName="CurrencyDate"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyDate]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">-1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Inputs[Sort Input].Columns[AverageRate]"
+                          cachedDataType="decimal"
+                          cachedName="AverageRate"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[AverageRate]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Inputs[Sort Input].Columns[CurrencyAlternateKey]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="CurrencyAlternateKey"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output].Columns[CurrencyAlternateKey]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Inputs[Sort Input].Columns[CurrencyName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CurrencyName"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output].Columns[CurrencyName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyId]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyId]"
+                          name="CurrencyId">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyId]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyIDKey]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyIDKey]"
+                          name="CurrencyIDKey">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyIDKey]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyDate]"
+                          dataType="dbDate"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyDate]"
+                          name="CurrencyDate"
+                          sortKeyPosition="-1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[CurrencyDate]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[AverageRate]"
+                          dataType="decimal"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[AverageRate]"
+                          name="AverageRate">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output].Columns[AverageRate]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyAlternateKey]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyAlternateKey]"
+                          name="CurrencyAlternateKey">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output].Columns[CurrencyAlternateKey]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output].Columns[CurrencyName]"
+                          name="CurrencyName">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output].Columns[CurrencyName]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Export Plain Data.Paths[FilterDate]"
+                  endId="Package\Foreach Loop Container\Export Plain Data\Lookup.Inputs[Lookup Input]"
+                  name="FilterDate"
+                  startId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Outputs[FilterDate]" />
+                <path
+                  refId="Package\Foreach Loop Container\Export Plain Data.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8.Inputs[Conditional Split Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\Export Plain Data\Currency File.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Export Plain Data.Paths[Lookup Match Output]"
+                  endId="Package\Foreach Loop Container\Export Plain Data\Sort.Inputs[Sort Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Foreach Loop Container\Export Plain Data\Lookup.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Export Plain Data.Paths[Sort Output]"
+                  endId="Package\Foreach Loop Container\Export Plain Data\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="Sort Output"
+                  startId="Package\Foreach Loop Container\Export Plain Data\Sort.Outputs[Sort Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{1FF7D373-9CD9-4192-8838-94254D5BF1FA}"
+          DTS:ObjectName="{1FF7D373-9CD9-4192-8838-94254D5BF1FA}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::varFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Foreach Loop Container\Export Plain Data"
+          TopLeft="69,43" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="324,176"
+          Size="324,219"
+          Id="Package\Foreach Loop Container"
+          TopLeft="101,50" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Export Plain Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Foreach Loop Container\Export Plain Data\Currency File"
+          TopLeft="43,107" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Foreach Loop Container\Export Plain Data\Filter Month &gt; 8"
+          TopLeft="270,38" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Export Plain Data.Paths[Flat File Source Output]"
+          TopLeft="113,107">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="210.333333333333,-27"
+              Start="0,0"
+              End="210.333333333333,-19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-12.0355329949239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-12.0355329949239"
+                    Point2="0,-16.0355329949239"
+                    Point3="4,-16.0355329949239" />
+                  <mssgle:LineSegment
+                    End="206.333333333333,-16.0355329949239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="206.333333333333,-16.0355329949239"
+                    Point2="210.333333333333,-16.0355329949239"
+                    Point3="210.333333333333,-20.0355329949239" />
+                  <mssgle:LineSegment
+                    End="210.333333333333,-19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Foreach Loop Container\Export Plain Data\Lookup"
+          TopLeft="183,207" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Export Plain Data.Paths[FilterDate]"
+          TopLeft="348,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-108.5,127"
+              Start="0,0"
+              End="-108.5,119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.5"
+                    Point2="0,63.5"
+                    Point3="-4,63.5" />
+                  <mssgle:LineSegment
+                    End="-104.5,63.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-104.5,63.5"
+                    Point2="-108.5,63.5"
+                    Point3="-108.5,67.5" />
+                  <mssgle:LineSegment
+                    End="-108.5,119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-76.06134765625,68.5,43.6226953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Foreach Loop Container\Export Plain Data\Sort"
+          TopLeft="505,171" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Export Plain Data.Paths[Lookup Match Output]"
+          TopLeft="296,228">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="209,-36"
+              Start="0,0"
+              End="201.5,-36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="100.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100.5,0"
+                    Point2="104.5,0"
+                    Point3="104.5,-4" />
+                  <mssgle:LineSegment
+                    End="104.5,-32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.5,-32"
+                    Point2="104.5,-36"
+                    Point3="108.5,-36" />
+                  <mssgle:LineSegment
+                    End="201.5,-36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="56.30861328125,1,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Foreach Loop Container\Export Plain Data\Flat File Destination"
+          TopLeft="579,30" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Export Plain Data.Paths[Sort Output]"
+          TopLeft="554,171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111,-99"
+              Start="0,0"
+              End="111,-91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-45.5"
+                    Point2="0,-49.5"
+                    Point3="4,-49.5" />
+                  <mssgle:LineSegment
+                    End="107,-49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107,-49.5"
+                    Point2="111,-49.5"
+                    Point3="111,-53.5" />
+                  <mssgle:LineSegment
+                    End="111,-91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Export Plain Data\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
